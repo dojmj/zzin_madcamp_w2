@@ -23,7 +23,7 @@ function ResultPage() {
 
         let data;
 
-        if (fordev) {
+        if (!fordev) {
           // 개발 환경에서는 로컬 JSON 파일 사용
           const response = await fetch("/youtubeChannelsforTest.json");
           if (!response.ok) {

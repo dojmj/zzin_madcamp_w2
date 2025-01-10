@@ -13,7 +13,7 @@ import Signup from "./Page/Signup";
 import CategorySelection from "./Page/CategorySelection";
 import SubtopicSelection from "./Page/SubtopicSelection";
 import ResultPage from "./Page/ResultPage";
-import MyChannel from "./Page/MyChannel";
+import MyChannel2 from "./Page/MyChannel2";
 
 function AppRoutes() {
   const { user, login, logout } = useAuth();
@@ -56,7 +56,7 @@ function AppRoutes() {
       />
       <Route
         path="/my-channel"
-        element={<MyChannel user={user} handleLogout={logout} />}
+        element={<MyChannel2 user={user} handleLogout={logout} />}
       />
     </Routes>
   );

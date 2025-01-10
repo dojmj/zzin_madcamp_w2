@@ -311,9 +311,10 @@ app.post("/favorite", async (req, res) => {
       LEFT JOIN youtube_videos v ON c.id = v.channel_id
       WHERE MATCH(c.name) AGAINST(? IN NATURAL LANGUAGE MODE)
         AND c.last_updated >= NOW() - INTERVAL 1 MONTH
-      ,
-      [tags.join(' ')]`
+      `,
+      [tags.join(' ')] // tags를 매개변수로 전달
     );
+    
 
     if (channelsFromDb.length > 0) {
       console.log("캐싱된 데이터 사용");
@@ -341,7 +342,7 @@ app.post("/favorite", async (req, res) => {
     const searchResults = await youtube.search.list({
       part: "snippet",
       q: tags.join(" "),
-      maxResults: 8, // 필요한 채널 수
+      maxResults: 20, // 필요한 채널 수
       type: "channel",
       order: "relevance",
     });
@@ -363,7 +364,6 @@ app.post("/favorite", async (req, res) => {
       channelDetails.data.items.map(async (channel) => {
         const topVideo = await getTopVideo(channel.id);
 
-        // DB에 youtube_channels 저장
         await db.query(
           `
           INSERT INTO youtube_channels (id, name, url, subscribers, view_count, last_updated)
@@ -373,15 +373,16 @@ app.post("/favorite", async (req, res) => {
             subscribers = VALUES(subscribers),
             view_count = VALUES(view_count),
             last_updated = NOW()
-          ,
+          `,
           [
             channel.id,
             channel.snippet.title || "채널 이름 없음",
-            https://www.youtube.com/channel/${channel.id},
+            `https://www.youtube.com/channel/${channel.id}`,
             channel.statistics.subscriberCount || 0,
             channel.statistics.viewCount || 0,
-          ]`
+          ]
         );
+        
 
         // DB에 youtube_videos 저장
         if (topVideo) {
@@ -395,7 +396,7 @@ app.post("/favorite", async (req, res) => {
               view_count = VALUES(view_count),
               last_updated = NOW(),
               channel_picture = VALUES(channel_picture)
-            ,
+            `,
             [
               topVideo.videoId,
               channel.id,
@@ -409,8 +410,7 @@ app.post("/favorite", async (req, res) => {
                 channel.snippet.thumbnails?.default?.url ||
                 "",
             ]
-          `
-          );
+          );          
         }
 
         return {
