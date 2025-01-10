@@ -1,0 +1,4 @@
+src/servre/.env
+src/servre/.env
+node_modules/
+*.env

@@ -1,0 +1,90 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #171717;
+  color: #ffffff;
+  padding: 0;
+}
+
+.hero {
+  line-height: 1.6;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #0d0d0d, #222);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #d1fd0a;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: white;
+  padding: 0 50px;
+  margin: 0 auto;
+  text-align: start;
+}
+
+.features {
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px 20px;
+}
+
+.feature {
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.feature h2 {
+  font-size: 1.8rem;
+  color: #d1fd0a;
+  margin-bottom: 15px;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
+.cta {
+  line-height: 1.6;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #0d0d0d;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+.cta button {
+  padding: 15px 30px;
+  background-color: #d1fd0a;
+  color: #000000;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.cta button:hover {
+  background-color: #c5ea09;
+}

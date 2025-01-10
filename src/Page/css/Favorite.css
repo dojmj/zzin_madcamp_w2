@@ -1,0 +1,59 @@
+.favorite {
+  background-color: #171717;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: #d1fd0a;
+  font-family: "Arial", sans-serif;
+}
+
+.username {
+  font-weight: bold;
+  color: #d1fd0a;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  text-align: left;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-left: 50px;
+  max-width: 90%;
+}
+
+.tag-button {
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.tag-button.selected {
+  background-color: #d1fd0a;
+  color: black;
+  border: none;
+}
+.tag-button.selected:hover {
+  background-color: #d1fd0a; /* 유지하려는 기존 배경색 */
+  color: black; /* 유지하려는 기존 텍스트 색상 */
+  border: none; /* 유지하려는 기존 테두리 */
+  cursor: default; /* 선택된 상태에서 포인터 변경 */
+}
+
+.tag-button:hover {
+  background-color: #333;
+}
